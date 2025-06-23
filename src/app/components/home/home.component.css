@@ -1,0 +1,299 @@
+.home {
+    padding-top: 80px;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/assets/skCuarteto.png')  center/cover;
+    opacity: 0.1;
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .highlight {
+    color: #FFD93D;
+  }
+
+  .script {
+    font-family: 'Dancing Script', cursive;
+    color: #FFD93D;
+    display: block;
+  }
+
+  .heart-icon {
+    color:#FFD93D;
+    animation: heartbeat 2s ease-in-out infinite;
+    margin-left: 10rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    line-height: 1.6;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .btn-primary {
+    background: white;
+    color: black;
+    border: 1px solid white;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(25deg, #764ba2,  #667eea);
+    color: white;
+  }
+
+  .btn-secondary {
+    background: linear-gradient(25deg, #667eea, #764ba2);
+    color: white;
+    border: 1px solid white;
+  }
+
+  .btn-secondary:hover {
+    background: white;
+    color: #667eea;
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    width: 600px;
+    height: 500px;
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 107, 107, 0.3), rgba(69, 183, 209, 0.3));
+  }
+
+  .features {
+    padding: 6rem 0;
+    background: var(--background-light);
+  }
+
+  .section-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: var(--text-dark);
+    font-family: 'Dancing Script', cursive;
+  }
+
+  .features-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .feature-card {
+    text-align: center;
+    padding: 3rem 2rem;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+    color: rgb(114, 39, 226);
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+  }
+
+  .feature-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  .timeline {
+    padding: 6rem 0;
+    background: white;
+  }
+
+  .timeline-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background:linear-gradient(25deg, #667eea, #764ba2);
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    display: flex;
+    margin-bottom: 4rem;
+    position: relative;
+  }
+
+  .timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .timeline-item:nth-child(even) .timeline-content {
+    text-align: right;
+  }
+
+  .timeline-date {
+    flex: 0 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(25deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 50px;
+    height: 60px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .timeline-content {
+    flex: 1;
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+  }
+
+  .timeline-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+  }
+
+  .timeline-content p {
+    color: var(--text-light);
+  }
+
+  @media (max-width: 968px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 3rem;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+    }
+
+    .image-container {
+      width: 300px;
+      height: 400px;
+    }
+
+    .timeline-container::before {
+      left: 30px;
+    }
+
+    .timeline-item {
+      flex-direction: row !important;
+      padding-left: 80px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      text-align: left;
+    }
+
+    .timeline-date {
+      position: absolute;
+      left: 0;
+      margin: 0;
+      width: 60px;
+      height: 60px;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+      justify-content: center;
+    }
+
+    .features-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+    }
+  }

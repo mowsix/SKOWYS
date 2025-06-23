@@ -1,0 +1,66 @@
+<div class="photos-page">
+    <div class="page-header">
+      <div class="container">
+        <h1><i class="fas fa-camera"></i> Nuestras Fotos</h1>
+        <p>Momentos capturados que cuentan nuestra historia de amor</p>
+      </div>
+    </div>
+
+    <div class="photos-content container">
+      <div class="photos-filters">
+        <button 
+          *ngFor="let filter of filters"
+          class="filter-btn"
+          [class.active]="activeFilter === filter.value"
+          (click)="setFilter(filter.value)">
+          <i [class]="filter.icon"></i>
+          {{ filter.label }}
+        </button>
+      </div>
+
+      <div class="photos-grid" *ngIf="filteredPhotos.length > 0">
+        <div 
+          *ngFor="let photo of filteredPhotos; let i = index" 
+          class="photo-item"
+          (click)="openModal(photo, i)">
+          <img [src]="photo.url" [alt]="photo.title" loading="lazy">
+          <div class="photo-overlay">
+            <div class="photo-info">
+              <h3>{{ photo.title }}</h3>
+              <p>{{ photo.date }}</p>
+            </div>
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="no-photos" *ngIf="filteredPhotos.length === 0">
+        <i class="fas fa-camera"></i>
+        <h3>No hay fotos en esta categoría</h3>
+        <p>Pronto añadiremos más recuerdos especiales</p>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" [class.active]="modalActive" (click)="closeModal()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <button class="modal-close" (click)="closeModal()">
+          <i class="fas fa-times"></i>
+        </button>
+        <img [src]="selectedPhoto?.url" [alt]="selectedPhoto?.title" *ngIf="selectedPhoto">
+        <div class="modal-info" *ngIf="selectedPhoto">
+          <h3>{{ selectedPhoto.title }}</h3>
+          <p class="modal-date">{{ selectedPhoto.date }}</p>
+          <p class="modal-description">{{ selectedPhoto.description }}</p>
+        </div>
+        <div class="modal-nav">
+          <button (click)="previousPhoto()" class="nav-btn prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button (click)="nextPhoto()" class="nav-btn next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
